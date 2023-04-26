@@ -1,9 +1,9 @@
-import { FormEvent, VFC } from 'react'
+import { FormEvent, FC } from 'react'
 import { supabase } from '../utils/supabase'
 import useStore from '../store'
 import { useMutateNotice } from '../hooks/useMutateNotice'
 
-export const NoticeForm: VFC = () => {
+export const NoticeForm: FC = () => {
   const { editedNotice } = useStore()
   const update = useStore((state) => state.updateEditedNotice)
   const { createNoticeMutation, updateNoticeMutation } = useMutateNotice()

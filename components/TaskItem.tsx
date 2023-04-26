@@ -1,10 +1,10 @@
-import { VFC } from 'react'
+import { FC } from 'react'
 import { PencilAltIcon, TrashIcon } from '@heroicons/react/solid'
 import useStore from '../store'
 import { useMutateTask } from '../hooks/useMutateTask'
 import { Task } from '../types/types'
 
-export const TaskItem: VFC<Omit<Task, 'created_at' | 'user_id'>> = ({
+export const TaskItem: FC<Omit<Task, 'created_at' | 'user_id'>> = ({
   id,
   title,
 }) => {

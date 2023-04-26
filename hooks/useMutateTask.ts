@@ -17,7 +17,7 @@ export const useMutateTask = () => {
       onSuccess: (res) => {
         const previousTodos = queryClient.getQueryData<Task[]>('todos')
         if (previousTodos) {
-          queryClient.setQueryData('todos', [...previousTodos, res[0]])
+          queryClient.setQueryData(['todos'], [...previousTodos, res[0]])
         }
         reset()
       },
@@ -38,10 +38,10 @@ export const useMutateTask = () => {
     },
     {
       onSuccess: (res, variables) => {
-        const previousTodos = queryClient.getQueryData<Task[]>('todos')
+        const previousTodos = queryClient.getQueryData<Task[]>(['todos'])
         if (previousTodos) {
           queryClient.setQueryData(
-            'todos',
+            ['todos'],
             previousTodos.map((task) =>
               task.id === variables.id ? res[0] : task
             )
@@ -63,10 +63,10 @@ export const useMutateTask = () => {
     },
     {
       onSuccess: (_, variables) => {
-        const previousTodos = queryClient.getQueryData<Task[]>('todos')
+        const previousTodos = queryClient.getQueryData<Task[]>(['todos'])
         if (previousTodos) {
           queryClient.setQueryData(
-            'todos',
+            ['todos'],
             previousTodos.filter((task) => task.id !== variables)
           )
         }

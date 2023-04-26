@@ -1,11 +1,11 @@
-import { VFC, useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { supabase } from '../utils/supabase'
 import { PencilAltIcon, TrashIcon } from '@heroicons/react/solid'
 import useStore from '../store'
 import { useMutateNotice } from '../hooks/useMutateNotice'
 import { Notice } from '../types/types'
 
-export const NoticeItem: VFC<Omit<Notice, 'created_at'>> = ({
+export const NoticeItem: FC<Omit<Notice, 'created_at'>> = ({
   id,
   content,
   user_id,
